@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-// import TypewritterText from "./TypewriterText";
 
 const url =
   "https://wgg522pwivhvi5gqsn675gth3q0otdja.lambda-url.us-east-1.on.aws/656c61";
 
 function App() {
-  const [htmlContent, setHtmlContent] = useState("");
+  const [htmlContent, setHtmlContent] = useState('');
   const [isLoading, setIsLoading] = useState(true);
-  const [screenText, setScreenText] = useState('');
-  const [index, setIndex] = useState(0);
   // TODO: implement blinking
 
   useEffect(() => {
@@ -23,15 +20,8 @@ function App() {
     }
   }, []);
 
-    // start with nothing
-    // each iteration of useEffect will add 1 char until the whole word is added to 'screnText'
-
-
-  // console.log("screenText: ", screenText);
-
   //TODO: update html, each character needs to be a list item
 
-  // const text = TypewritterText(htmlContent); 
   console.log("htmlContent: ", htmlContent); 
   
   return (
@@ -40,9 +30,11 @@ function App() {
       </header>
       <div className="main-container">
         {!isLoading ? (
-          <div className="flag">
-            {/* {TypewritterText()} */}
-            <ul className="list" id={"charList"} >
+          <div style={{display: "inline-block"}}>
+            <div class="typing">
+              something
+              </div>
+            {/* <ul className="list typing" id={"charList"} >
             {htmlContent.map((c,i) => {
               return (
               <li className="char" key={i}>
@@ -50,7 +42,7 @@ function App() {
               </li>
               )
             })}
-            </ul>
+            </ul> */}
           </div>
         ) : (
           <div> Loading... </div>

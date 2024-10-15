@@ -1,3 +1,7 @@
+:root {
+  --cursor-color: white;
+}
+
 .App {
   text-align: center;
 }
@@ -32,6 +36,19 @@ li {
   list-style-type: none ;
 }
 
+.flag {
+  display: inline-block;
+}
+
+.typing {
+  border-right: 1px solid var(--cursor-color); 
+  overflow: hidden;
+  white-space: nowrap;
+  animation:
+    typing 4s steps(40, end),
+    blinking 1s steps(1, end) infinite;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -41,11 +58,12 @@ li {
   flex-direction: row;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blinking {
+  from { border-right-color: var(--cursor-color); }
+  to { border-right-color: transparent; }
 }
