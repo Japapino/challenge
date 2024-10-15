@@ -21,9 +21,7 @@ const getLink = () => {
         });
     });
     
-    const result = values.toString().replace(/,/g, '');
-    
-    console.log('values list: ', values); 
+    const result = values.toString().replace(/,/g, ''); 
     console.log('result     : ', result);
     
 };
