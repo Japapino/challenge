@@ -7,6 +7,7 @@ const url =
 function App() {
   const [htmlContent, setHtmlContent] = useState('');
   const [isLoading, setIsLoading] = useState(true);
+
   // TODO: implement blinking
 
   useEffect(() => {
@@ -19,9 +20,6 @@ function App() {
       }, 1000);
     }
   }, []);
-
-  //TODO: update html, each character needs to be a list item
-
   console.log("htmlContent: ", htmlContent); 
   
   return (
@@ -31,10 +29,7 @@ function App() {
       <div className="main-container">
         {!isLoading ? (
           <div style={{display: "inline-block"}}>
-            <div class="typing">
-              something
-              </div>
-            {/* <ul className="list typing" id={"charList"} >
+            <ul className="list typing" id={"charList"} >
             {htmlContent.map((c,i) => {
               return (
               <li className="char" key={i}>
@@ -42,7 +37,7 @@ function App() {
               </li>
               )
             })}
-            </ul> */}
+            </ul>
           </div>
         ) : (
           <div> Loading... </div>

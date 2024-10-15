@@ -36,16 +36,12 @@ li {
   list-style-type: none ;
 }
 
-.flag {
-  display: inline-block;
-}
-
 .typing {
   border-right: 1px solid var(--cursor-color); 
   overflow: hidden;
   white-space: nowrap;
   animation:
-    typing 4s steps(40, end),
+    typing 3.5s steps(40, end),
     blinking 1s steps(1, end) infinite;
 }
 
@@ -58,12 +54,17 @@ li {
   flex-direction: row;
 }
 
+ul {
+  padding-inline-start: 0; 
+}
+
 @keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
+  0% { width: 0; }
+  100% { width: 100%; }
 }
 
 @keyframes blinking {
-  from { border-right-color: var(--cursor-color); }
-  to { border-right-color: transparent; }
+  0% { border-color: transparent }
+  50% { border-color: var(--cursor-color)}
+  100% { border-color: transparent }
 }
