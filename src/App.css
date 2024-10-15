@@ -41,7 +41,6 @@ li {
   overflow: hidden;
   white-space: nowrap;
   animation:
-    typing 3.5s steps(40, end),
     blinking 1s steps(1, end) infinite;
 }
 
@@ -56,11 +55,6 @@ li {
 
 ul {
   padding-inline-start: 0; 
-}
-
-@keyframes typing {
-  0% { width: 0; }
-  100% { width: 100%; }
 }
 
 @keyframes blinking {

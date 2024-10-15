@@ -1,43 +1,36 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import "./App.css";
-
+import Typewriter from "./Typewriter.js";
 const url =
   "https://wgg522pwivhvi5gqsn675gth3q0otdja.lambda-url.us-east-1.on.aws/656c61";
 
 function App() {
-  const [htmlContent, setHtmlContent] = useState('');
+  const [htmlContent, setHtmlContent] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  // TODO: implement blinking
-
   useEffect(() => {
-    if (!htmlContent) {
-      fetch(url)
-        .then((response) => response.text())
-        .then((data) => setHtmlContent(Array.from(data)));
+    const fetchData = async () => {
+      const response = await fetch(url);
+      const data = await response.text();
+      setHtmlContent(Array.from(data));
       setTimeout(() => {
         setIsLoading(false);
       }, 1000);
+    };
+
+    if (!htmlContent) {
+      fetchData();
     }
-  }, []);
-  console.log("htmlContent: ", htmlContent); 
-  
+  }, [htmlContent]);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-      </header>
+      <header className="App-header"></header>
       <div className="main-container">
         {!isLoading ? (
-          <div style={{display: "inline-block"}}>
-            <ul className="list typing" id={"charList"} >
-            {htmlContent.map((c,i) => {
-              return (
-              <li className="char" key={i}>
-                {c}
-              </li>
-              )
-            })}
-            </ul>
+          <div>
+            <Typewriter text={htmlContent} />
           </div>
         ) : (
           <div> Loading... </div>
